@@ -123,7 +123,13 @@ use crate::debug::{d, Dt};
 ///         "9".to_string(),
 ///         "--line-height".to_string(),
 ///         "2".to_string(),
-///         "-sithvd".to_string(),
+/// 		"--spaceless".to_string(),
+/// 		"--independent-gradient".to_string(),
+/// 		"--transition-gradient".to_string(),
+/// 		"--help".to_string(),
+/// 		"--version".to_string(),
+/// 		"--debug".to_string(),
+/// 		"--raw-mode".to_string(),
 ///         "--max-length".to_string(),
 ///         "100".to_string(),
 ///         "--gradient".to_string(),
@@ -132,7 +138,6 @@ use crate::debug::{d, Dt};
 ///         "browser".to_string(),
 ///         "--debug-level".to_string(),
 ///         "3".to_string(),
-/// 		"--raw-mode".to_string(),
 ///     ])
 ///     .unwrap(),
 ///     options
