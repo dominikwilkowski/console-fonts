@@ -36,6 +36,7 @@ use crate::debug::{d, Dt};
 /// options.version = true;
 /// options.debug = true;
 /// options.debug_level = 3;
+/// options.raw_mode = true;
 ///
 /// // All shortcut flags
 /// assert_eq!(
@@ -68,6 +69,7 @@ use crate::debug::{d, Dt};
 ///         "-d".to_string(),
 ///         "-x".to_string(),
 ///         "3".to_string(),
+/// 		"-r".to_string(),
 ///     ])
 ///     .unwrap(),
 ///     options
@@ -90,7 +92,7 @@ use crate::debug::{d, Dt};
 ///         "9".to_string(),
 ///         "-z".to_string(),
 ///         "2".to_string(),
-///         "-sithvd".to_string(), // <-- stacked boolean flags
+///         "-sithvdr".to_string(), // <-- stacked boolean flags
 ///         "-m".to_string(),
 ///         "100".to_string(),
 ///         "-g".to_string(),
@@ -130,6 +132,7 @@ use crate::debug::{d, Dt};
 ///         "browser".to_string(),
 ///         "--debug-level".to_string(),
 ///         "3".to_string(),
+/// 		"--raw-mode".to_string(),
 ///     ])
 ///     .unwrap(),
 ///     options
