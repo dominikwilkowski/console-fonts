@@ -215,6 +215,18 @@ pub fn render(options: Options) -> RenderedString {
 		d("render() formatted for Env::Browser", 1, Dt::Log, &options, &mut std::io::stdout());
 	}
 
+	// Handle raw mode only in Cli env
+	if options.env == Env::Cli {
+		if options.raw_mode {
+			for v in output.iter_mut() {
+				*v = v.replace('\n', "\r\n");
+			}
+			text = text.replace('\n', "\r\n");
+		}
+	}
+
+	d(&format!("render() final output string: {:?}", text), 1, Dt::Log, &options, &mut std::io::stdout());
+
 	RenderedString {
 		text,
 		vec: output,

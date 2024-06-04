@@ -503,6 +503,9 @@ pub fn parse(args: Vec<String>) -> Result<Options, String> {
 						"debug" => {
 							options.debug = true;
 						}
+						"raw_mode" => {
+							options.raw_mode = true;
+						}
 						_ => {}
 					},
 					OptionType::Env => {

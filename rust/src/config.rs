@@ -278,6 +278,8 @@ pub struct Options {
 	pub debug: bool,
 	/// The depth of the debug infos
 	pub debug_level: u16,
+	/// To render string newlines properly in 'raw mode' in terminals
+	pub raw_mode: bool,
 }
 
 impl Default for Options {
@@ -301,6 +303,7 @@ impl Default for Options {
 			version: false,
 			debug: false,
 			debug_level: 1,
+			raw_mode: false,
 		}
 	}
 }
@@ -350,7 +353,7 @@ pub struct CliOption<'a> {
 /// The `CLIOPTIONS` define each of the flags our cli app respects.
 ///
 /// It's also used to generate the help
-pub const CLIOPTIONS: [CliOption; 16] = [
+pub const CLIOPTIONS: [CliOption; 17] = [
 	CliOption {
 		key: "version",
 		name: "--version",
@@ -494,5 +497,14 @@ pub const CLIOPTIONS: [CliOption; 16] = [
 		description: "Use to define the debug level. The higher, the less debug infos",
 		example: "--debug-level 2",
 		kind: OptionType::Number,
+	},
+	CliOption {
+		key: "raw_mode",
+		name: "--raw-mode",
+		shortcut: "-r",
+		fallback_shortcut: "",
+		description: "Use to enable proper newline rendering for 'raw mode' in terminals",
+		example: "--raw-mode",
+		kind: OptionType::Bool,
 	},
 ];
