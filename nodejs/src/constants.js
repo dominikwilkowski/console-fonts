@@ -303,6 +303,13 @@ const CLIOPTIONS = {
 		options: true,
 		default: 1,
 	},
+	'--raw-mode': {
+		description: 'Use to render string newlines properly in raw mode in terminals',
+		example: '--raw-mode',
+		short: '-r',
+		fallback_shortcut: false,
+		default: false,
+	},
 };
 
 const PACKAGE = require('../package.json');

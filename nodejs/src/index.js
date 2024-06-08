@@ -49,10 +49,11 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			`    independentGradient: ${args['independent-gradient']},\n` +
 			`    transitionGradient: ${args['transition-gradient']},\n` +
 			`    env: ${args.env},\n` +
-			`  }, ${args.debug}, ${args.debugLevel} );`,
+			`    rawMode: ${args['raw-mode']},\n` +
+			`  }, ${args.debug}, ${args['debug-level']} );`,
 		3,
 		args.debug,
-		args.debugLevel
+		args['debug-level']
 	);
 
 	if (args.help) {
@@ -89,9 +90,10 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			independentGradient: args['independent-gradient'],
 			transitionGradient: args['transition-gradient'],
 			env: args.env,
+			rawMode: args['raw-mode'],
 		},
 		args.debug,
-		args.debugLevel
+		args['debug-level']
 	);
 };
 

@@ -242,6 +242,18 @@ const Render = (input, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.
 			`</div>`;
 	}
 
+	// handle raw mode
+	if (OPTIONS.env === 'node') {
+		if (OPTIONS.rawMode === true) {
+			const re = /\n/g;
+			const newline = '\r\n';
+			write = write.replace(re, newline);
+			output = output.map((x) => {
+				return x.replace(re, newline);
+			});
+		}
+	}
+
 	return {
 		string: write,
 		array: output,

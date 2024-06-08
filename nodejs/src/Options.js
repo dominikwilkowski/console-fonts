@@ -39,6 +39,7 @@ const Options = {
 			independentGradient: false,
 			transitionGradient: false,
 			env: 'node',
+			rawMode: false,
 		};
 
 		this.store = { ...defaults }; // cloning
@@ -73,6 +74,7 @@ const Options = {
 	 * @param  {object}                  options.allowedColors       - All allowed font colors
 	 * @param  {object}                  options.allowedBG           - All allowed background colors
 	 * @param  {object}                  options.allowedFont         - All allowed fontfaces
+	 * @param  {boolean}                 options.rawMode             - A switch for raw mode in terminals
 	 */
 	set set({
 		font = '',
@@ -91,6 +93,7 @@ const Options = {
 		allowedColors = COLORS,
 		allowedBG = BGCOLORS,
 		allowedFont = FONTFACES,
+		rawMode,
 	}) {
 		this.store.font = font !== '' ? allowedFont[font.toLowerCase()] || font : this.store.font;
 
@@ -137,6 +140,8 @@ const Options = {
 			transitionGradient !== undefined ? transitionGradient : this.store.transitionGradient;
 
 		this.store.env = env !== undefined ? env : this.store.env;
+
+		this.store.rawMode = rawMode !== undefined ? rawMode : this.store.rawMode;
 	},
 };
 
