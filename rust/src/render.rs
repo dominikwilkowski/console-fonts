@@ -50,13 +50,13 @@ pub struct RenderedString {
 ///             " █▀█ ██▄ █▄▄ █▄▄ █▄█\n\n"
 ///         )
 ///     );
-///		let output = render(Options {
-/// 		text: String::from("hello"),
-/// 		font: Fonts::FontTiny,
-/// 		raw_mode: true,
-/// 		..Options::default()
-/// 	});
-/// 	assert_eq!(
+///        let output = render(Options {
+///         text: String::from("hello"),
+///         font: Fonts::FontTiny,
+///         raw_mode: true,
+///         ..Options::default()
+///     });
+///     assert_eq!(
 ///         output.text,
 ///         format!("{}{}{}",
 ///             "\r\n\r\n",
@@ -230,13 +230,11 @@ pub fn render(options: Options) -> RenderedString {
 	}
 
 	// Handle raw mode only in Cli env
-	if options.env == Env::Cli {
-		if options.raw_mode {
-			for v in output.iter_mut() {
-				*v = v.replace('\n', "\r\n");
-			}
-			text = text.replace('\n', "\r\n");
+	if options.env == Env::Cli && options.raw_mode {
+		for v in output.iter_mut() {
+			*v = v.replace('\n', "\r\n");
 		}
+		text = text.replace('\n', "\r\n");
 	}
 
 	d(&format!("render() final output string: {:?}", text), 1, Dt::Log, &options, &mut std::io::stdout());
