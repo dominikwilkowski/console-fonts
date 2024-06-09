@@ -304,7 +304,7 @@ const CLIOPTIONS = {
 		default: 1,
 	},
 	'--raw-mode': {
-		description: 'Use to render string newlines properly in raw mode in terminals',
+		description: 'Use to enable proper newline rendering in raw mode in the terminal by adding \\r to line breaks',
 		example: '--raw-mode',
 		short: '-r',
 		fallback_shortcut: false,

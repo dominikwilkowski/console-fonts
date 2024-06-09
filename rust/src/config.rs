@@ -503,7 +503,7 @@ pub const CLIOPTIONS: [CliOption; 17] = [
 		name: "--raw-mode",
 		shortcut: "-r",
 		fallback_shortcut: "",
-		description: "Use to enable proper newline rendering for 'raw mode' in terminals",
+		description: "Use to enable proper newline rendering in raw mode in the terminal by adding \\r to line breaks",
 		example: "--raw-mode",
 		kind: OptionType::Bool,
 	},
