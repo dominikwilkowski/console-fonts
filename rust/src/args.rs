@@ -32,11 +32,11 @@ use crate::debug::{d, Dt};
 /// options.independent_gradient = true;
 /// options.transition_gradient = true;
 /// options.env = Env::Browser;
+/// options.raw_mode = true;
 /// options.help = true;
 /// options.version = true;
 /// options.debug = true;
 /// options.debug_level = 3;
-/// options.raw_mode = true;
 ///
 /// // All shortcut flags
 /// assert_eq!(
@@ -64,12 +64,12 @@ use crate::debug::{d, Dt};
 ///         "-t".to_string(),
 ///         "-e".to_string(),
 ///         "browser".to_string(),
+///         "-r".to_string(),
 ///         "-h".to_string(),
 ///         "-v".to_string(),
 ///         "-d".to_string(),
 ///         "-x".to_string(),
 ///         "3".to_string(),
-///         "-r".to_string(),
 ///     ])
 ///     .unwrap(),
 ///     options
