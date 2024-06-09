@@ -50,12 +50,14 @@ pub struct RenderedString {
 ///             " █▀█ ██▄ █▄▄ █▄▄ █▄█\n\n"
 ///         )
 ///     );
-///        let output = render(Options {
+///
+///     let output = render(Options {
 ///         text: String::from("hello"),
 ///         font: Fonts::FontTiny,
 ///         raw_mode: true,
 ///         ..Options::default()
 ///     });
+///
 ///     assert_eq!(
 ///         output.text,
 ///         format!("{}{}{}",
