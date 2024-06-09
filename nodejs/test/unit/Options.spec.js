@@ -20,6 +20,7 @@ test(`Options - Should return default options`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	};
 
 	Options.reset();
@@ -55,6 +56,7 @@ test(`Options - Should be able to handle casing`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -84,6 +86,7 @@ test(`Options - Should be able to handle background and backgroundColor`, () => 
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -106,6 +109,7 @@ test(`Options - Should merge font option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -128,6 +132,7 @@ test(`Options - Should merge align option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -150,6 +155,7 @@ test(`Options - Should merge colors option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -172,6 +178,7 @@ test(`Options - Should merge background option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -194,6 +201,7 @@ test(`Options - Should merge backgroundColor option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -216,6 +224,7 @@ test(`Options - Should merge letterSpacing option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -238,6 +247,7 @@ test(`Options - Should merge lineHeight option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -260,6 +270,7 @@ test(`Options - Should merge space option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -282,6 +293,7 @@ test(`Options - Should merge maxLength option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -304,6 +316,7 @@ test(`Options - Should merge string-gradient option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -326,6 +339,7 @@ test(`Options - Should merge array-gradient option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -348,6 +362,7 @@ test(`Options - Should merge independentGradient option with defaults`, () => {
 		independentGradient: true,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -370,6 +385,7 @@ test(`Options - Should merge independentGradient option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: true,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -392,5 +408,29 @@ test(`Options - Should merge env option with defaults`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'browser',
+		rawMode: false,
+	});
+});
+
+test(`Options - Should merge raw-mode option with defaults`, () => {
+	Options.reset();
+	Options.set = {
+		rawMode: true,
+	};
+
+	expect(Options.get).toEqual({
+		font: 'block',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 1,
+		lineHeight: 1,
+		space: true,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
 	});
 });

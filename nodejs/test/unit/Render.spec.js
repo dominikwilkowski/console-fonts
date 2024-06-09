@@ -23,6 +23,7 @@ beforeEach(() => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	};
 	Options.set = DEFAULTS;
 });
@@ -68,6 +69,7 @@ test(`Render - Render console string`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -99,6 +101,7 @@ test(`Render - Render console string with a color`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -135,6 +138,7 @@ test(`Render - Render console string with gradient will ignore color`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -197,6 +201,7 @@ test(`Render - Render block font`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -243,6 +248,7 @@ test(`Render - Render letter spacing`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 
 	const test2 = Render(
@@ -286,6 +292,7 @@ test(`Render - Render letter spacing`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -331,6 +338,7 @@ test(`Render - Center align block font`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -376,6 +384,7 @@ test(`Render - Right align block font`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -420,6 +429,7 @@ test(`Render - Top align block font`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -465,6 +475,7 @@ test(`Render - Bottom align block font`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -510,6 +521,7 @@ test(`Render - Ignore alignment top when combining it with space option`, () => 
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -555,6 +567,7 @@ test(`Render - Ignore alignment bottom when combining it with space option`, () 
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -605,6 +618,7 @@ test(`Render - Break into new line on smaller viewports`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -642,6 +656,7 @@ test(`Render - Fallback to huge viewport in browser environments`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'browser',
+		rawMode: false,
 	});
 });
 
@@ -692,6 +707,7 @@ test(`Render - Respect maxLength over viewport in browser env`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'browser',
+		rawMode: false,
 	});
 });
 
@@ -729,6 +745,7 @@ test(`Render - Add background color in browser environments`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'browser',
+		rawMode: false,
 	});
 });
 
@@ -779,6 +796,7 @@ test(`Render - Add line break`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -830,6 +848,7 @@ test(`Render - Add line height`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -867,6 +886,7 @@ test(`Render - Non supported characters are ignored`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -903,6 +923,7 @@ test(`Render - Remove space`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -942,6 +963,7 @@ test(`Render - Add background color`, () => {
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -957,4 +979,190 @@ test(`Render - Returns false if font is not known`, () => {
 	);
 
 	expect(test).toBe(false);
+});
+
+test(`Render - Render console string in raw mode`, () => {
+	const test = Render(
+		'text',
+		{
+			font: 'console',
+			rawMode: true,
+		},
+		false,
+		1,
+		{ width: 100, height: 10 }
+	);
+
+	expect(test.string).toBe('\r\n\r\ntext\r\n\r\n');
+	expect(test.array).toEqual(['\r\n\r\ntext\r\n\r\n']);
+	expect(test.lines).toBe(1);
+	expect(test.options).toEqual({
+		font: 'console',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 0,
+		lineHeight: 0,
+		space: true,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
+});
+
+test(`Render - Break into new line on smaller viewports in raw mode`, () => {
+	const test = Render('text', { rawMode: true }, false, 1, { width: 20, height: 10 });
+
+	expect(test.string).toBe(
+		'\r\n\r\n' +
+			' ████████╗ ███████╗\r\n' +
+			' ╚══██╔══╝ ██╔════╝\r\n' +
+			'    ██║    █████╗  \r\n' +
+			'    ██║    ██╔══╝  \r\n' +
+			'    ██║    ███████╗\r\n' +
+			'    ╚═╝    ╚══════╝\r\n\r\n' +
+			' ██╗  ██╗ ████████╗\r\n' +
+			' ╚██╗██╔╝ ╚══██╔══╝\r\n' +
+			'  ╚███╔╝     ██║   \r\n' +
+			'  ██╔██╗     ██║   \r\n' +
+			' ██╔╝ ██╗    ██║   \r\n' +
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
+	);
+	expect(test.array).toEqual([
+		'\r\n\r\n ████████╗ ███████╗',
+		' ╚══██╔══╝ ██╔════╝',
+		'    ██║    █████╗  ',
+		'    ██║    ██╔══╝  ',
+		'    ██║    ███████╗',
+		'    ╚═╝    ╚══════╝',
+		'',
+		' ██╗  ██╗ ████████╗',
+		' ╚██╗██╔╝ ╚══██╔══╝',
+		'  ╚███╔╝     ██║   ',
+		'  ██╔██╗     ██║   ',
+		' ██╔╝ ██╗    ██║   ',
+		' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n',
+	]);
+	expect(test.lines).toBe(2);
+	expect(test.options).toEqual({
+		font: 'block',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 1,
+		lineHeight: 1,
+		space: true,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
+});
+
+test(`Render - Add line break in raw mode`, () => {
+	const test = Render('te|xt', { rawMode: true }, false, 1, { width: 100, height: 10 });
+
+	expect(test.string).toBe(
+		'\r\n\r\n' +
+			' ████████╗ ███████╗\r\n' +
+			' ╚══██╔══╝ ██╔════╝\r\n' +
+			'    ██║    █████╗  \r\n' +
+			'    ██║    ██╔══╝  \r\n' +
+			'    ██║    ███████╗\r\n' +
+			'    ╚═╝    ╚══════╝\r\n\r\n' +
+			' ██╗  ██╗ ████████╗\r\n' +
+			' ╚██╗██╔╝ ╚══██╔══╝\r\n' +
+			'  ╚███╔╝     ██║   \r\n' +
+			'  ██╔██╗     ██║   \r\n' +
+			' ██╔╝ ██╗    ██║   \r\n' +
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
+	);
+	expect(test.array).toEqual([
+		'\r\n\r\n ████████╗ ███████╗',
+		' ╚══██╔══╝ ██╔════╝',
+		'    ██║    █████╗  ',
+		'    ██║    ██╔══╝  ',
+		'    ██║    ███████╗',
+		'    ╚═╝    ╚══════╝',
+		'',
+		' ██╗  ██╗ ████████╗',
+		' ╚██╗██╔╝ ╚══██╔══╝',
+		'  ╚███╔╝     ██║   ',
+		'  ██╔██╗     ██║   ',
+		' ██╔╝ ██╗    ██║   ',
+		' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n',
+	]);
+	expect(test.lines).toBe(2);
+	expect(test.options).toEqual({
+		font: 'block',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 1,
+		lineHeight: 1,
+		space: true,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
+});
+
+test(`Render - Add line height in raw mode`, () => {
+	const test = Render('te|xt', { lineHeight: 2, rawMode: true }, false, 1, { width: 100, height: 10 });
+
+	expect(test.string).toBe(
+		'\r\n\r\n' +
+			' ████████╗ ███████╗\r\n' +
+			' ╚══██╔══╝ ██╔════╝\r\n' +
+			'    ██║    █████╗  \r\n' +
+			'    ██║    ██╔══╝  \r\n' +
+			'    ██║    ███████╗\r\n' +
+			'    ╚═╝    ╚══════╝\r\n\r\n\r\n' +
+			' ██╗  ██╗ ████████╗\r\n' +
+			' ╚██╗██╔╝ ╚══██╔══╝\r\n' +
+			'  ╚███╔╝     ██║   \r\n' +
+			'  ██╔██╗     ██║   \r\n' +
+			' ██╔╝ ██╗    ██║   \r\n' +
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
+	);
+	expect(test.array).toEqual([
+		'\r\n\r\n ████████╗ ███████╗',
+		' ╚══██╔══╝ ██╔════╝',
+		'    ██║    █████╗  ',
+		'    ██║    ██╔══╝  ',
+		'    ██║    ███████╗',
+		'    ╚═╝    ╚══════╝',
+		'',
+		'',
+		' ██╗  ██╗ ████████╗',
+		' ╚██╗██╔╝ ╚══██╔══╝',
+		'  ╚███╔╝     ██║   ',
+		'  ██╔██╗     ██║   ',
+		' ██╔╝ ██╗    ██║   ',
+		' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n',
+	]);
+	expect(test.lines).toBe(2);
+	expect(test.options).toEqual({
+		font: 'block',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 1,
+		lineHeight: 2,
+		space: true,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
 });

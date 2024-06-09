@@ -22,6 +22,7 @@ beforeEach(() => {
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
+		rawMode: false,
 	};
 
 	Options.set = DEFAULTS;
