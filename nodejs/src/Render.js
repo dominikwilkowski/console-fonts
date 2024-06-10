@@ -210,7 +210,7 @@ const Render = (input, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.
 		});
 	}
 
-	if (OPTIONS.space) {
+	if (!OPTIONS.spaceless) {
 		// add space
 		if (OPTIONS.align === 'top') {
 			output[output.length - 1] = `${output[output.length - 1]}\n\n\n\n`;

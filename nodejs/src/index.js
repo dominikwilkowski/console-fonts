@@ -43,7 +43,7 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			`    background: "${args.background}",\n` +
 			`    letterSpacing: ${args['letter-spacing']},\n` +
 			`    lineHeight: ${args['line-height']},\n` +
-			`    space: ${!args.spaceless},\n` +
+			`    spaceless: ${args.spaceless},\n` +
 			`    maxLength: ${args['max-length']},\n` +
 			`    gradient: ${args.gradient},\n` +
 			`    independentGradient: ${args['independent-gradient']},\n` +
@@ -84,7 +84,7 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			background: args.background,
 			letterSpacing: args['letter-spacing'],
 			lineHeight: args['line-height'],
-			space: !args.spaceless,
+			spaceless: args.spaceless,
 			maxLength: args['max-length'],
 			gradient: args.gradient,
 			independentGradient: args['independent-gradient'],
