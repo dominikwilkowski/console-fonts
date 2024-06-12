@@ -122,6 +122,13 @@ pub fn render(options: Options) -> RenderedString {
 		&mut std::io::stdout(),
 	);
 
+	// set line break character based on env
+	let line_break = if options.env == Env::Cli && options.raw_mode {
+		"\r\n"
+	} else {
+		"\n"
+	};
+
 	add_line(&mut output, font.lines, &options);
 	lines += 1;
 
@@ -196,12 +203,12 @@ pub fn render(options: Options) -> RenderedString {
 
 	if !options.spaceless {
 		match options.align {
-			Align::Top => output.push(String::from("\n\n\n")),
-			Align::Bottom => output[0] = String::from("\n\n\n\n") + &output[0],
+			Align::Top => output.push(format!("{line_break}{line_break}{line_break}")),
+			Align::Bottom => output[0] = format!("{line_break}{line_break}{line_break}{line_break}") + &output[0],
 			Align::Left | Align::Center | Align::Right => {
-				output[0] = String::from("\n\n") + &output[0];
+				output[0] = format!("{line_break}{line_break}") + &output[0];
 				let last_index = output.len() - 1;
-				output[last_index] = format!("{}\n\n", output[last_index]);
+				output[last_index] = format!("{}{line_break}{line_break}", output[last_index]);
 			}
 		}
 		d("render() added space", 1, Dt::Log, &options, &mut std::io::stdout());
@@ -209,15 +216,15 @@ pub fn render(options: Options) -> RenderedString {
 
 	if options.background != BgColors::Transparent && options.env == Env::Cli {
 		let (open, close) = get_background_color(&options.background);
-		output[0] = format!("{}\n", open) + &output[0];
+		output[0] = format!("{}{line_break}", open) + &output[0];
 		let last_index = output.len() - 1;
 		output[last_index] = format!("{}{}", output[last_index], close);
 		d("render() added background", 1, Dt::Log, &options, &mut std::io::stdout());
 	}
 
 	let mut text = match options.env {
-		Env::Cli => output.join("\n"),
-		Env::Browser => output.join("<br>\n"),
+		Env::Cli => output.join(line_break),
+		Env::Browser => output.join(format!("<br>{line_break}").as_str()),
 	};
 
 	if options.env == Env::Browser {
@@ -229,14 +236,6 @@ pub fn render(options: Options) -> RenderedString {
 		};
 		text = format!("<div style=\"font-family:monospace;white-space:pre;text-align:{};max-width:100%;overflow:scroll;background:{}\">{}</div>", align, color, text);
 		d("render() formatted for Env::Browser", 1, Dt::Log, &options, &mut std::io::stdout());
-	}
-
-	// Handle raw mode only in Cli env
-	if options.env == Env::Cli && options.raw_mode {
-		for v in output.iter_mut() {
-			*v = v.replace('\n', "\r\n");
-		}
-		text = text.replace('\n', "\r\n");
 	}
 
 	d(&format!("render() final output string: {:?}", text), 1, Dt::Log, &options, &mut std::io::stdout());
