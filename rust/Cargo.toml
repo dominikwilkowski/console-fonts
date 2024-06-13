@@ -14,16 +14,16 @@ categories = ["command-line-interface", "command-line-utilities", "graphics"]
 include = ["/fonts", "/src", "!.DS_Store", "/LICENSE"]
 
 [dependencies]
-exitcode = "1.1.2"
+exitcode = "1"
 strum = "0.25"
 strum_macros = "0.25"
 enable-ansi-support = "0.2"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-rand = "0.8.5"
+rand = "0.8"
 terminal_size = "0.3"
-supports-color = "2"
+supports-color = "3"
 
 [dev-dependencies]
-temp-env = "0.3.6"
-assert_cmd = "2.0.13"
+temp-env = "0.3"
+assert_cmd = "2"
