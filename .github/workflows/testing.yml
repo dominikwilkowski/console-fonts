@@ -28,7 +28,7 @@ jobs:
         working-directory: ./rust
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
@@ -81,14 +81,14 @@ jobs:
         working-directory: ./rust
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -114,7 +114,7 @@ jobs:
   test-nodejs:
     strategy:
       matrix:
-        node: [ 12, 14, 16, 18 ]
+        node: [ 12, 14, 16, 18, 20, 22 ]
         os:
           - ubuntu-latest
           - windows-latest
@@ -125,10 +125,10 @@ jobs:
         working-directory: ./nodejs
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -182,10 +182,10 @@ jobs:
         working-directory: ./nodejs
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -239,14 +239,14 @@ jobs:
         working-directory: ./rust
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 

@@ -116,7 +116,7 @@ pub fn render(options: Options) -> RenderedString {
 
 	options.text.chars().for_each(|og_letter| {
 		d(&format!("render() \u{2022} loop og_letter:{:?}", og_letter), 1, Dt::Log, &options, &mut std::io::stdout());
-		// we insert the pipe here so that out match will find it. it's not defined in our font files because it's just a new-line
+		// we insert the pipe here so that our match will find it. it's not defined in our font files because it's just a new-line
 		font.chars.insert(String::from("|"), vec![String::from("|")]);
 		match font.chars.get(&og_letter.to_string().to_uppercase()) {
 			None => {
