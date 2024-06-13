@@ -199,7 +199,7 @@ pub fn parse(args: Vec<String>) -> Result<Options, String> {
 	}
 
 	// our text to be converted
-	options.text = my_args[1].clone();
+	options.text.clone_from(&my_args[1]);
 
 	let mut args_length = my_args.len();
 	let mut i = 2; // we skip the first two arguments as the first is path to binary and the second we already take care of above
@@ -214,7 +214,7 @@ pub fn parse(args: Vec<String>) -> Result<Options, String> {
 			// unwrap is guarded by if clause it's contained in
 			for flag in this_flag.strip_prefix('-').unwrap().chars() {
 				let flag_name = format!("-{}", flag);
-				if options_lookup.get(&flag_name).is_some() {
+				if options_lookup.contains_key(&flag_name) {
 					middle_flags.push(flag_name);
 				}
 			}
