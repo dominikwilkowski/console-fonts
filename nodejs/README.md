@@ -94,8 +94,6 @@ This package is tested on the below platform and node combinations as part of ou
 | Linux    | v18  |
 | Linux    | v20  |
 | Linux    | v22  |
-| MacOS    | v12  |
-| MacOS    | v14  |
 | MacOS    | v16  |
 | MacOS    | v18  |
 | MacOS    | v20  |
