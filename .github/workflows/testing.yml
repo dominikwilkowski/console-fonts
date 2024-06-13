@@ -114,48 +114,49 @@ jobs:
   test-nodejs:
     strategy:
       matrix:
-        - os: ubuntu-latest
-          node: 12
-        - os: ubuntu-latest
-          node: 14
-        - os: ubuntu-latest
-          node: 16
-        - os: ubuntu-latest
-          node: 18
-        - os: ubuntu-latest
-          node: 20
-        - os: ubuntu-latest
-          node: 22
+        os-node:
+          - os: ubuntu-latest
+            node: 12
+          - os: ubuntu-latest
+            node: 14
+          - os: ubuntu-latest
+            node: 16
+          - os: ubuntu-latest
+            node: 18
+          - os: ubuntu-latest
+            node: 20
+          - os: ubuntu-latest
+            node: 22
 
-        # - os: macOS-latest
-        #   node: 12
-        # Not available for ARM
-        # - os: macOS-latest
-        #   node: 14
-        # Not available for ARM
-        - os: macOS-latest
-          node: 16
-        - os: macOS-latest
-          node: 18
-        - os: macOS-latest
-          node: 20
-        - os: macOS-latest
-          node: 22
+          # - os: macOS-latest
+          #   node: 12
+          # Not available for ARM
+          # - os: macOS-latest
+          #   node: 14
+          # Not available for ARM
+          - os: macOS-latest
+            node: 16
+          - os: macOS-latest
+            node: 18
+          - os: macOS-latest
+            node: 20
+          - os: macOS-latest
+            node: 22
 
-        - os: windows-latest
-          node: 12
-        - os: windows-latest
-          node: 14
-        - os: windows-latest
-          node: 16
-        - os: windows-latest
-          node: 18
-        - os: windows-latest
-          node: 20
-        - os: windows-latest
-          node: 22
+          - os: windows-latest
+            node: 12
+          - os: windows-latest
+            node: 14
+          - os: windows-latest
+            node: 16
+          - os: windows-latest
+            node: 18
+          - os: windows-latest
+            node: 20
+          - os: windows-latest
+            node: 22
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os-node.os }}
     defaults:
       run:
         working-directory: ./nodejs
@@ -166,7 +167,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.os-node.node }}
 
       - name: Get yarn cache
         id: yarn-cache
