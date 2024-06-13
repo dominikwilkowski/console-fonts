@@ -28,7 +28,7 @@ jobs:
         working-directory: ./rust
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
@@ -81,14 +81,14 @@ jobs:
         working-directory: ./rust
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -114,23 +114,60 @@ jobs:
   test-nodejs:
     strategy:
       matrix:
-        node: [ 12, 14, 16, 18 ]
-        os:
-          - ubuntu-latest
-          - windows-latest
-          - macOS-latest
-    runs-on: ${{ matrix.os }}
+        os-node:
+          - os: ubuntu-latest
+            node: 12
+          - os: ubuntu-latest
+            node: 14
+          - os: ubuntu-latest
+            node: 16
+          - os: ubuntu-latest
+            node: 18
+          - os: ubuntu-latest
+            node: 20
+          - os: ubuntu-latest
+            node: 22
+
+          # - os: macOS-latest
+          #   node: 12
+          # Not available for ARM
+          # - os: macOS-latest
+          #   node: 14
+          # Not available for ARM
+          - os: macOS-latest
+            node: 16
+          - os: macOS-latest
+            node: 18
+          - os: macOS-latest
+            node: 20
+          - os: macOS-latest
+            node: 22
+
+          - os: windows-latest
+            node: 12
+          - os: windows-latest
+            node: 14
+          - os: windows-latest
+            node: 16
+          - os: windows-latest
+            node: 18
+          - os: windows-latest
+            node: 20
+          - os: windows-latest
+            node: 22
+
+    runs-on: ${{ matrix.os-node.os }}
     defaults:
       run:
         working-directory: ./nodejs
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.os-node.node }}
 
       - name: Get yarn cache
         id: yarn-cache
@@ -182,10 +219,10 @@ jobs:
         working-directory: ./nodejs
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -239,14 +276,14 @@ jobs:
         working-directory: ./rust
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
