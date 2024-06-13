@@ -32,6 +32,7 @@ use crate::debug::{d, Dt};
 /// options.independent_gradient = true;
 /// options.transition_gradient = true;
 /// options.env = Env::Browser;
+/// options.raw_mode = true;
 /// options.help = true;
 /// options.version = true;
 /// options.debug = true;
@@ -63,6 +64,7 @@ use crate::debug::{d, Dt};
 ///         "-t".to_string(),
 ///         "-e".to_string(),
 ///         "browser".to_string(),
+///         "-r".to_string(),
 ///         "-h".to_string(),
 ///         "-v".to_string(),
 ///         "-d".to_string(),
@@ -90,7 +92,7 @@ use crate::debug::{d, Dt};
 ///         "9".to_string(),
 ///         "-z".to_string(),
 ///         "2".to_string(),
-///         "-sithvd".to_string(), // <-- stacked boolean flags
+///         "-sithvdr".to_string(), // <-- stacked boolean flags
 ///         "-m".to_string(),
 ///         "100".to_string(),
 ///         "-g".to_string(),
@@ -121,7 +123,13 @@ use crate::debug::{d, Dt};
 ///         "9".to_string(),
 ///         "--line-height".to_string(),
 ///         "2".to_string(),
-///         "-sithvd".to_string(),
+///         "--spaceless".to_string(),
+///         "--independent-gradient".to_string(),
+///         "--transition-gradient".to_string(),
+///         "--help".to_string(),
+///         "--version".to_string(),
+///         "--debug".to_string(),
+///         "--raw-mode".to_string(),
 ///         "--max-length".to_string(),
 ///         "100".to_string(),
 ///         "--gradient".to_string(),
@@ -502,6 +510,9 @@ pub fn parse(args: Vec<String>) -> Result<Options, String> {
 						}
 						"debug" => {
 							options.debug = true;
+						}
+						"raw_mode" => {
+							options.raw_mode = true;
 						}
 						_ => {}
 					},

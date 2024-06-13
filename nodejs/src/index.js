@@ -43,16 +43,17 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			`    background: "${args.background}",\n` +
 			`    letterSpacing: ${args['letter-spacing']},\n` +
 			`    lineHeight: ${args['line-height']},\n` +
-			`    space: ${!args.spaceless},\n` +
+			`    spaceless: ${args.spaceless},\n` +
 			`    maxLength: ${args['max-length']},\n` +
 			`    gradient: ${args.gradient},\n` +
 			`    independentGradient: ${args['independent-gradient']},\n` +
 			`    transitionGradient: ${args['transition-gradient']},\n` +
 			`    env: ${args.env},\n` +
-			`  }, ${args.debug}, ${args.debugLevel} );`,
+			`    rawMode: ${args['raw-mode']},\n` +
+			`  }, ${args.debug}, ${args['debug-level']} );`,
 		3,
 		args.debug,
-		args.debugLevel
+		args['debug-level']
 	);
 
 	if (args.help) {
@@ -83,15 +84,16 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			background: args.background,
 			letterSpacing: args['letter-spacing'],
 			lineHeight: args['line-height'],
-			space: !args.spaceless,
+			spaceless: args.spaceless,
 			maxLength: args['max-length'],
 			gradient: args.gradient,
 			independentGradient: args['independent-gradient'],
 			transitionGradient: args['transition-gradient'],
 			env: args.env,
+			rawMode: args['raw-mode'],
 		},
 		args.debug,
-		args.debugLevel
+		args['debug-level']
 	);
 };
 

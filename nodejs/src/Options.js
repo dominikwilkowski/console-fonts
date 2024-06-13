@@ -33,12 +33,13 @@ const Options = {
 			background: 'transparent',
 			letterSpacing: 1,
 			lineHeight: 1,
-			space: true,
+			spaceless: false,
 			maxLength: 0,
 			gradient: false,
 			independentGradient: false,
 			transitionGradient: false,
 			env: 'node',
+			rawMode: false,
 		};
 
 		this.store = { ...defaults }; // cloning
@@ -64,7 +65,7 @@ const Options = {
 	 * @param  {string}                  options.backgroundColor     - Alias for background
 	 * @param  {number}                  options.letterSpacing       - Space between letters, Default: set by selected font face
 	 * @param  {number}                  options.lineHeight          - Space between lines, Default: 1
-	 * @param  {boolean}                 options.space               - Output space before and after output, Default: true
+	 * @param  {boolean}                 options.spaceless           - Don't output space before and after output, Default: false
 	 * @param  {number}                  options.maxLength           - Maximum amount of characters per line, Default width of console window
 	 * @param  {(string|array|boolean)}  options.gradient            - Gradient color pair, Default: false
 	 * @param  {boolean}                 options.independentGradient - A switch to calculate gradient per line or not
@@ -73,6 +74,7 @@ const Options = {
 	 * @param  {object}                  options.allowedColors       - All allowed font colors
 	 * @param  {object}                  options.allowedBG           - All allowed background colors
 	 * @param  {object}                  options.allowedFont         - All allowed fontfaces
+	 * @param  {boolean}                 options.rawMode             - A switch for raw mode in terminals
 	 */
 	set set({
 		font = '',
@@ -82,7 +84,7 @@ const Options = {
 		backgroundColor,
 		letterSpacing,
 		lineHeight,
-		space,
+		spaceless,
 		maxLength,
 		gradient,
 		independentGradient,
@@ -91,6 +93,7 @@ const Options = {
 		allowedColors = COLORS,
 		allowedBG = BGCOLORS,
 		allowedFont = FONTFACES,
+		rawMode,
 	}) {
 		this.store.font = font !== '' ? allowedFont[font.toLowerCase()] || font : this.store.font;
 
@@ -117,7 +120,7 @@ const Options = {
 				? 0
 				: this.store.lineHeight;
 
-		this.store.space = typeof space === 'boolean' ? space : this.store.space;
+		this.store.spaceless = typeof spaceless === 'boolean' ? spaceless : this.store.spaceless;
 
 		this.store.maxLength = maxLength !== undefined ? maxLength : this.store.maxLength;
 
@@ -137,6 +140,8 @@ const Options = {
 			transitionGradient !== undefined ? transitionGradient : this.store.transitionGradient;
 
 		this.store.env = env !== undefined ? env : this.store.env;
+
+		this.store.rawMode = rawMode !== undefined ? rawMode : this.store.rawMode;
 	},
 };
 

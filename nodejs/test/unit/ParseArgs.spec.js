@@ -63,6 +63,7 @@ test(`ParseArgs - Return defaults without arguments`, () => {
 		text: undefined,
 		version: false,
 		env: 'node',
+		'raw-mode': false,
 	};
 
 	process.argv = ['node', 'script']; // we have to remove process.argv so args passed to our testing lib don't break our test

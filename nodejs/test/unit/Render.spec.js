@@ -17,12 +17,13 @@ beforeEach(() => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	};
 	Options.set = DEFAULTS;
 });
@@ -62,12 +63,13 @@ test(`Render - Render console string`, () => {
 		background: 'transparent',
 		letterSpacing: 0,
 		lineHeight: 0,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -93,12 +95,13 @@ test(`Render - Render console string with a color`, () => {
 		background: 'transparent',
 		letterSpacing: 0,
 		lineHeight: 0,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -129,12 +132,13 @@ test(`Render - Render console string with gradient will ignore color`, () => {
 		background: 'transparent',
 		letterSpacing: 0,
 		lineHeight: 0,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: ['red', 'blue'],
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -176,12 +180,13 @@ test(`Render - Render block font`, () => {
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'    ██║    █████╗    ╚███╔╝     ██║   ',
-		'    ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'    ██║    █████╗    ╚███╔╝     ██║   ',
+			'    ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -191,12 +196,13 @@ test(`Render - Render block font`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -222,12 +228,13 @@ test(`Render - Render letter spacing`, () => {
 			'\n'
 	);
 	expect(test1.array).toEqual([
-		'\n\n  ████████╗  ███████╗  ██╗  ██╗  ████████╗',
-		'  ╚══██╔══╝  ██╔════╝  ╚██╗██╔╝  ╚══██╔══╝',
-		'     ██║     █████╗     ╚███╔╝      ██║   ',
-		'     ██║     ██╔══╝     ██╔██╗      ██║   ',
-		'     ██║     ███████╗  ██╔╝ ██╗     ██║   ',
-		'     ╚═╝     ╚══════╝  ╚═╝  ╚═╝     ╚═╝   \n\n',
+		'\n\n' +
+			'  ████████╗  ███████╗  ██╗  ██╗  ████████╗',
+			'  ╚══██╔══╝  ██╔════╝  ╚██╗██╔╝  ╚══██╔══╝',
+			'     ██║     █████╗     ╚███╔╝      ██║   ',
+			'     ██║     ██╔══╝     ██╔██╗      ██║   ',
+			'     ██║     ███████╗  ██╔╝ ██╗     ██║   ',
+			'     ╚═╝     ╚══════╝  ╚═╝  ╚═╝     ╚═╝   \n\n',
 	]);
 	expect(test1.lines).toBe(1);
 	expect(test1.options).toEqual({
@@ -237,12 +244,13 @@ test(`Render - Render letter spacing`, () => {
 		background: 'transparent',
 		letterSpacing: 2,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 
 	const test2 = Render(
@@ -265,12 +273,13 @@ test(`Render - Render letter spacing`, () => {
 			'             ╚═╝             ╚══════╝          ╚═╝  ╚═╝             ╚═╝   \n\n'
 	);
 	expect(test2.array).toEqual([
-		'\n\n          ████████╗          ███████╗          ██╗  ██╗          ████████╗',
-		'          ╚══██╔══╝          ██╔════╝          ╚██╗██╔╝          ╚══██╔══╝',
-		'             ██║             █████╗             ╚███╔╝              ██║   ',
-		'             ██║             ██╔══╝             ██╔██╗              ██║   ',
-		'             ██║             ███████╗          ██╔╝ ██╗             ██║   ',
-		'             ╚═╝             ╚══════╝          ╚═╝  ╚═╝             ╚═╝   \n\n',
+		'\n\n' +
+			'          ████████╗          ███████╗          ██╗  ██╗          ████████╗',
+			'          ╚══██╔══╝          ██╔════╝          ╚██╗██╔╝          ╚══██╔══╝',
+			'             ██║             █████╗             ╚███╔╝              ██║   ',
+			'             ██║             ██╔══╝             ██╔██╗              ██║   ',
+			'             ██║             ███████╗          ██╔╝ ██╗             ██║   ',
+			'             ╚═╝             ╚══════╝          ╚═╝  ╚═╝             ╚═╝   \n\n',
 	]);
 	expect(test2.lines).toBe(1);
 	expect(test2.options).toEqual({
@@ -280,12 +289,13 @@ test(`Render - Render letter spacing`, () => {
 		background: 'transparent',
 		letterSpacing: 10,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -310,12 +320,13 @@ test(`Render - Center align block font`, () => {
 			'          ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
 	expect(test.array).toEqual([
-		'\n\n       ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		'       ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'          ██║    █████╗    ╚███╔╝     ██║   ',
-		'          ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'          ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'          ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			'       ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			'       ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'          ██║    █████╗    ╚███╔╝     ██║   ',
+			'          ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'          ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'          ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -325,12 +336,13 @@ test(`Render - Center align block font`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -355,12 +367,13 @@ test(`Render - Right align block font`, () => {
 			'                ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
 	expect(test.array).toEqual([
-		'\n\n             ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		'             ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'                ██║    █████╗    ╚███╔╝     ██║   ',
-		'                ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'                ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'                ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			'             ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			'             ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'                ██║    █████╗    ╚███╔╝     ██║   ',
+			'                ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'                ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'                ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -370,12 +383,13 @@ test(`Render - Right align block font`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -392,11 +406,11 @@ test(`Render - Top align block font`, () => {
 
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
-			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
-			'    ██║    █████╗    ╚███╔╝     ██║   \n' +
-			'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
-			'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
-			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n\n\n'
+		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
+		'    ██║    █████╗    ╚███╔╝     ██║   \n' +
+		'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
+		'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
+		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n\n\n'
 	);
 	expect(test.array).toEqual([
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -414,12 +428,13 @@ test(`Render - Top align block font`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -444,12 +459,13 @@ test(`Render - Bottom align block font`, () => {
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
 	);
 	expect(test.array).toEqual([
-		'\n\n\n\n ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'    ██║    █████╗    ╚███╔╝     ██║   ',
-		'    ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   ',
+		'\n\n\n\n' +
+			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'    ██║    █████╗    ╚███╔╝     ██║   ',
+			'    ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   ',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -459,12 +475,13 @@ test(`Render - Bottom align block font`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -472,7 +489,7 @@ test(`Render - Ignore alignment top when combining it with space option`, () => 
 	const test = Render(
 		'text',
 		{
-			space: false,
+			spaceless: true,
 			align: 'top',
 		},
 		false,
@@ -482,11 +499,11 @@ test(`Render - Ignore alignment top when combining it with space option`, () => 
 
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
-			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
-			'    ██║    █████╗    ╚███╔╝     ██║   \n' +
-			'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
-			'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
-			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
+		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
+		'    ██║    █████╗    ╚███╔╝     ██║   \n' +
+		'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
+		'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
+		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
 	);
 	expect(test.array).toEqual([
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -504,12 +521,13 @@ test(`Render - Ignore alignment top when combining it with space option`, () => 
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: false,
+		spaceless: true,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -517,7 +535,7 @@ test(`Render - Ignore alignment bottom when combining it with space option`, () 
 	const test = Render(
 		'text',
 		{
-			space: false,
+			spaceless: true,
 			align: 'bottom',
 		},
 		false,
@@ -527,11 +545,11 @@ test(`Render - Ignore alignment bottom when combining it with space option`, () 
 
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
-			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
-			'    ██║    █████╗    ╚███╔╝     ██║   \n' +
-			'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
-			'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
-			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
+		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
+		'    ██║    █████╗    ╚███╔╝     ██║   \n' +
+		'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
+		'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
+		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
 	);
 	expect(test.array).toEqual([
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -549,12 +567,13 @@ test(`Render - Ignore alignment bottom when combining it with space option`, () 
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: false,
+		spaceless: true,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -577,19 +596,20 @@ test(`Render - Break into new line on smaller viewports`, () => {
 			' ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗',
-		' ╚══██╔══╝ ██╔════╝',
-		'    ██║    █████╗  ',
-		'    ██║    ██╔══╝  ',
-		'    ██║    ███████╗',
-		'    ╚═╝    ╚══════╝',
-		'',
-		' ██╗  ██╗ ████████╗',
-		' ╚██╗██╔╝ ╚══██╔══╝',
-		'  ╚███╔╝     ██║   ',
-		'  ██╔██╗     ██║   ',
-		' ██╔╝ ██╗    ██║   ',
-		' ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗',
+			' ╚══██╔══╝ ██╔════╝',
+			'    ██║    █████╗  ',
+			'    ██║    ██╔══╝  ',
+			'    ██║    ███████╗',
+			'    ╚═╝    ╚══════╝',
+			'',
+			' ██╗  ██╗ ████████╗',
+			' ╚██╗██╔╝ ╚══██╔══╝',
+			'  ╚███╔╝     ██║   ',
+			'  ██╔██╗     ██║   ',
+			' ██╔╝ ██╗    ██║   ',
+			' ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(2);
 	expect(test.options).toEqual({
@@ -599,12 +619,13 @@ test(`Render - Break into new line on smaller viewports`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -621,12 +642,13 @@ test(`Render - Fallback to huge viewport in browser environments`, () => {
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n</div>'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'    ██║    █████╗    ╚███╔╝     ██║   ',
-		'    ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'    ██║    █████╗    ╚███╔╝     ██║   ',
+			'    ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -636,12 +658,13 @@ test(`Render - Fallback to huge viewport in browser environments`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'browser',
+		rawMode: false,
 	});
 });
 
@@ -664,19 +687,20 @@ test(`Render - Respect maxLength over viewport in browser env`, () => {
 			' ╚═╝  ╚═╝    ╚═╝   \n\n</div>'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗',
-		' ╚══██╔══╝ ██╔════╝',
-		'    ██║    █████╗  ',
-		'    ██║    ██╔══╝  ',
-		'    ██║    ███████╗',
-		'    ╚═╝    ╚══════╝',
-		'',
-		' ██╗  ██╗ ████████╗',
-		' ╚██╗██╔╝ ╚══██╔══╝',
-		'  ╚███╔╝     ██║   ',
-		'  ██╔██╗     ██║   ',
-		' ██╔╝ ██╗    ██║   ',
-		' ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗',
+			' ╚══██╔══╝ ██╔════╝',
+			'    ██║    █████╗  ',
+			'    ██║    ██╔══╝  ',
+			'    ██║    ███████╗',
+			'    ╚═╝    ╚══════╝',
+			'',
+			' ██╗  ██╗ ████████╗',
+			' ╚██╗██╔╝ ╚══██╔══╝',
+			'  ╚███╔╝     ██║   ',
+			'  ██╔██╗     ██║   ',
+			' ██╔╝ ██╗    ██║   ',
+			' ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(2);
 	expect(test.options).toEqual({
@@ -686,12 +710,13 @@ test(`Render - Respect maxLength over viewport in browser env`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 20,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'browser',
+		rawMode: false,
 	});
 });
 
@@ -708,12 +733,13 @@ test(`Render - Add background color in browser environments`, () => {
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n</div>'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'    ██║    █████╗    ╚███╔╝     ██║   ',
-		'    ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'    ██║    █████╗    ╚███╔╝     ██║   ',
+			'    ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -723,12 +749,13 @@ test(`Render - Add background color in browser environments`, () => {
 		background: 'black',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'browser',
+		rawMode: false,
 	});
 });
 
@@ -751,19 +778,20 @@ test(`Render - Add line break`, () => {
 			' ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗',
-		' ╚══██╔══╝ ██╔════╝',
-		'    ██║    █████╗  ',
-		'    ██║    ██╔══╝  ',
-		'    ██║    ███████╗',
-		'    ╚═╝    ╚══════╝',
-		'',
-		' ██╗  ██╗ ████████╗',
-		' ╚██╗██╔╝ ╚══██╔══╝',
-		'  ╚███╔╝     ██║   ',
-		'  ██╔██╗     ██║   ',
-		' ██╔╝ ██╗    ██║   ',
-		' ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗',
+			' ╚══██╔══╝ ██╔════╝',
+			'    ██║    █████╗  ',
+			'    ██║    ██╔══╝  ',
+			'    ██║    ███████╗',
+			'    ╚═╝    ╚══════╝',
+			'',
+			' ██╗  ██╗ ████████╗',
+			' ╚██╗██╔╝ ╚══██╔══╝',
+			'  ╚███╔╝     ██║   ',
+			'  ██╔██╗     ██║   ',
+			' ██╔╝ ██╗    ██║   ',
+			' ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(2);
 	expect(test.options).toEqual({
@@ -773,12 +801,13 @@ test(`Render - Add line break`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -801,20 +830,21 @@ test(`Render - Add line height`, () => {
 			' ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗',
-		' ╚══██╔══╝ ██╔════╝',
-		'    ██║    █████╗  ',
-		'    ██║    ██╔══╝  ',
-		'    ██║    ███████╗',
-		'    ╚═╝    ╚══════╝',
-		'',
-		'',
-		' ██╗  ██╗ ████████╗',
-		' ╚██╗██╔╝ ╚══██╔══╝',
-		'  ╚███╔╝     ██║   ',
-		'  ██╔██╗     ██║   ',
-		' ██╔╝ ██╗    ██║   ',
-		' ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗',
+			' ╚══██╔══╝ ██╔════╝',
+			'    ██║    █████╗  ',
+			'    ██║    ██╔══╝  ',
+			'    ██║    ███████╗',
+			'    ╚═╝    ╚══════╝',
+			'',
+			'',
+			' ██╗  ██╗ ████████╗',
+			' ╚██╗██╔╝ ╚══██╔══╝',
+			'  ╚███╔╝     ██║   ',
+			'  ██╔██╗     ██║   ',
+			' ██╔╝ ██╗    ██║   ',
+			' ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(2);
 	expect(test.options).toEqual({
@@ -824,12 +854,13 @@ test(`Render - Add line height`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 2,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -846,12 +877,13 @@ test(`Render - Non supported characters are ignored`, () => {
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
 	expect(test.array).toEqual([
-		'\n\n ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'    ██║    █████╗    ╚███╔╝     ██║   ',
-		'    ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
+		'\n\n' +
+			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'    ██║    █████╗    ╚███╔╝     ██║   ',
+			'    ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -861,25 +893,26 @@ test(`Render - Non supported characters are ignored`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
 test(`Render - Remove space`, () => {
-	const test = Render('text', { space: false }, false, 1, { width: 100, height: 10 });
+	const test = Render('text', { spaceless: true }, false, 1, { width: 100, height: 10 });
 
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
-			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
-			'    ██║    █████╗    ╚███╔╝     ██║   \n' +
-			'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
-			'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
-			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
+		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
+		'    ██║    █████╗    ╚███╔╝     ██║   \n' +
+		'    ██║    ██╔══╝    ██╔██╗     ██║   \n' +
+		'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
+		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
 	);
 	expect(test.array).toEqual([
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -897,12 +930,13 @@ test(`Render - Remove space`, () => {
 		background: 'transparent',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: false,
+		spaceless: true,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -921,12 +955,13 @@ test(`Render - Add background color`, () => {
 			'\u001b[49m'
 	);
 	expect(test.array).toEqual([
-		'\u001b[41m\n\n\n ████████╗ ███████╗ ██╗  ██╗ ████████╗',
-		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
-		'    ██║    █████╗    ╚███╔╝     ██║   ',
-		'    ██║    ██╔══╝    ██╔██╗     ██║   ',
-		'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
-		'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n\u001b[49m',
+		'\u001b[41m\n\n\n' +
+			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
+			' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝',
+			'    ██║    █████╗    ╚███╔╝     ██║   ',
+			'    ██║    ██╔══╝    ██╔██╗     ██║   ',
+			'    ██║    ███████╗ ██╔╝ ██╗    ██║   ',
+			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n\u001b[49m',
 	]);
 	expect(test.lines).toBe(1);
 	expect(test.options).toEqual({
@@ -936,12 +971,13 @@ test(`Render - Add background color`, () => {
 		background: 'red',
 		letterSpacing: 1,
 		lineHeight: 1,
-		space: true,
+		spaceless: false,
 		maxLength: 0,
 		gradient: false,
 		independentGradient: false,
 		transitionGradient: false,
 		env: 'node',
+		rawMode: false,
 	});
 });
 
@@ -957,4 +993,193 @@ test(`Render - Returns false if font is not known`, () => {
 	);
 
 	expect(test).toBe(false);
+});
+
+test(`Render - Render console string in raw mode`, () => {
+	const test = Render(
+		'text',
+		{
+			font: 'console',
+			rawMode: true,
+		},
+		false,
+		1,
+		{ width: 100, height: 10 }
+	);
+
+	expect(test.string).toBe('\r\n\r\ntext\r\n\r\n');
+	expect(test.array).toEqual(['\r\n\r\ntext\r\n\r\n']);
+	expect(test.lines).toBe(1);
+	expect(test.options).toEqual({
+		font: 'console',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 0,
+		lineHeight: 0,
+		spaceless: false,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
+});
+
+test(`Render - Break into new line on smaller viewports in raw mode`, () => {
+	const test = Render('text', { rawMode: true }, false, 1, { width: 20, height: 10 });
+
+	expect(test.string).toBe(
+		'\r\n\r\n' +
+			' ████████╗ ███████╗\r\n' +
+			' ╚══██╔══╝ ██╔════╝\r\n' +
+			'    ██║    █████╗  \r\n' +
+			'    ██║    ██╔══╝  \r\n' +
+			'    ██║    ███████╗\r\n' +
+			'    ╚═╝    ╚══════╝\r\n\r\n' +
+			' ██╗  ██╗ ████████╗\r\n' +
+			' ╚██╗██╔╝ ╚══██╔══╝\r\n' +
+			'  ╚███╔╝     ██║   \r\n' +
+			'  ██╔██╗     ██║   \r\n' +
+			' ██╔╝ ██╗    ██║   \r\n' +
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
+	);
+	expect(test.array).toEqual([
+		'\r\n\r\n' + 
+			' ████████╗ ███████╗',
+			' ╚══██╔══╝ ██╔════╝',
+			'    ██║    █████╗  ',
+			'    ██║    ██╔══╝  ',
+			'    ██║    ███████╗',
+			'    ╚═╝    ╚══════╝',
+			'',
+			' ██╗  ██╗ ████████╗',
+			' ╚██╗██╔╝ ╚══██╔══╝',
+			'  ╚███╔╝     ██║   ',
+			'  ██╔██╗     ██║   ',
+			' ██╔╝ ██╗    ██║   ',
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n',
+	]);
+	expect(test.lines).toBe(2);
+	expect(test.options).toEqual({
+		font: 'block',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 1,
+		lineHeight: 1,
+		spaceless: false,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
+});
+
+test(`Render - Add line break in raw mode`, () => {
+	const test = Render('te|xt', { rawMode: true }, false, 1, { width: 100, height: 10 });
+
+	expect(test.string).toBe(
+		'\r\n\r\n' +
+			' ████████╗ ███████╗\r\n' +
+			' ╚══██╔══╝ ██╔════╝\r\n' +
+			'    ██║    █████╗  \r\n' +
+			'    ██║    ██╔══╝  \r\n' +
+			'    ██║    ███████╗\r\n' +
+			'    ╚═╝    ╚══════╝\r\n\r\n' +
+			' ██╗  ██╗ ████████╗\r\n' +
+			' ╚██╗██╔╝ ╚══██╔══╝\r\n' +
+			'  ╚███╔╝     ██║   \r\n' +
+			'  ██╔██╗     ██║   \r\n' +
+			' ██╔╝ ██╗    ██║   \r\n' +
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
+	);
+	expect(test.array).toEqual([
+		'\r\n\r\n' +
+			' ████████╗ ███████╗',
+			' ╚══██╔══╝ ██╔════╝',
+			'    ██║    █████╗  ',
+			'    ██║    ██╔══╝  ',
+			'    ██║    ███████╗',
+			'    ╚═╝    ╚══════╝',
+			'',
+			' ██╗  ██╗ ████████╗',
+			' ╚██╗██╔╝ ╚══██╔══╝',
+			'  ╚███╔╝     ██║   ',
+			'  ██╔██╗     ██║   ',
+			' ██╔╝ ██╗    ██║   ',
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n',
+	]);
+	expect(test.lines).toBe(2);
+	expect(test.options).toEqual({
+		font: 'block',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 1,
+		lineHeight: 1,
+		spaceless: false,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
+});
+
+test(`Render - Add line height in raw mode`, () => {
+	const test = Render('te|xt', { lineHeight: 2, rawMode: true }, false, 1, { width: 100, height: 10 });
+
+	expect(test.string).toBe(
+		'\r\n\r\n' +
+			' ████████╗ ███████╗\r\n' +
+			' ╚══██╔══╝ ██╔════╝\r\n' +
+			'    ██║    █████╗  \r\n' +
+			'    ██║    ██╔══╝  \r\n' +
+			'    ██║    ███████╗\r\n' +
+			'    ╚═╝    ╚══════╝\r\n\r\n\r\n' +
+			' ██╗  ██╗ ████████╗\r\n' +
+			' ╚██╗██╔╝ ╚══██╔══╝\r\n' +
+			'  ╚███╔╝     ██║   \r\n' +
+			'  ██╔██╗     ██║   \r\n' +
+			' ██╔╝ ██╗    ██║   \r\n' +
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
+	);
+	expect(test.array).toEqual([
+		'\r\n\r\n' +
+			' ████████╗ ███████╗',
+			' ╚══██╔══╝ ██╔════╝',
+			'    ██║    █████╗  ',
+			'    ██║    ██╔══╝  ',
+			'    ██║    ███████╗',
+			'    ╚═╝    ╚══════╝',
+			'',
+			'',
+			' ██╗  ██╗ ████████╗',
+			' ╚██╗██╔╝ ╚══██╔══╝',
+			'  ╚███╔╝     ██║   ',
+			'  ██╔██╗     ██║   ',
+			' ██╔╝ ██╗    ██║   ',
+			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n',
+	]);
+	expect(test.lines).toBe(2);
+	expect(test.options).toEqual({
+		font: 'block',
+		align: 'left',
+		colors: [],
+		background: 'transparent',
+		letterSpacing: 1,
+		lineHeight: 2,
+		spaceless: false,
+		maxLength: 0,
+		gradient: false,
+		independentGradient: false,
+		transitionGradient: false,
+		env: 'node',
+		rawMode: true,
+	});
 });

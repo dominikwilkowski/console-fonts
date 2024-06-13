@@ -130,6 +130,12 @@ const Render = (input, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.
 	let lineLength = CharLength(FONTFACE.buffer, FONTFACE.lines, OPTIONS); // count each output character per line and start with the buffer
 	let maxChars = 0; // count each character we print for maxLength option
 
+	// handle raw mode
+	let line_break = '\n';
+	if (OPTIONS.env === 'node' && OPTIONS.rawMode === true) {
+		line_break = '\r\n';
+	}
+
 	output = AddLine([], FONTFACE.lines, FONTFACE.buffer, OPTIONS.lineHeight); // create first lines with buffer
 	lines++;
 
@@ -210,26 +216,26 @@ const Render = (input, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.
 		});
 	}
 
-	if (OPTIONS.space) {
+	if (!OPTIONS.spaceless) {
 		// add space
 		if (OPTIONS.align === 'top') {
-			output[output.length - 1] = `${output[output.length - 1]}\n\n\n\n`;
+			output[output.length - 1] = `${output[output.length - 1]}${line_break}${line_break}${line_break}${line_break}`;
 		} else if (OPTIONS.align === 'bottom') {
-			output[0] = `\n\n\n\n${output[0]}`;
+			output[0] = `${line_break}${line_break}${line_break}${line_break}${output[0]}`;
 		} else {
-			output[0] = `\n\n${output[0]}`;
-			output[output.length - 1] = `${output[output.length - 1]}\n\n`;
+			output[0] = `${line_break}${line_break}${output[0]}`;
+			output[output.length - 1] = `${output[output.length - 1]}${line_break}${line_break}`;
 		}
 	}
 
 	if (OPTIONS.background !== 'transparent' && OPTIONS.env === 'node') {
 		const { open: openNew, close: closeNew } = Color(OPTIONS.background, true);
 
-		output[0] = `${openNew}\n${output[0]}`;
+		output[0] = `${openNew}${line_break}${output[0]}`;
 		output[output.length - 1] = `${output[output.length - 1]}${closeNew}`;
 	}
 
-	let write = output.join(OPTIONS.env === 'node' ? `\n` : '<br>\n');
+	let write = output.join(OPTIONS.env === 'node' ? `${line_break}` : `<br>${line_break}`);
 
 	if (OPTIONS.env === 'browser') {
 		const { open: bgColor } = Color(OPTIONS.background, true);

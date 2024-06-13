@@ -128,6 +128,7 @@ mod args {
 		options.transition_gradient = true;
 		options.version = true;
 		options.debug = true;
+		options.raw_mode = true;
 
 		// long flags
 		assert_eq!(
@@ -140,6 +141,7 @@ mod args {
 				"--independent-gradient".to_string(),
 				"--transition-gradient".to_string(),
 				"--debug".to_string(),
+				"--raw-mode".to_string(),
 			])
 			.unwrap(),
 			options
@@ -156,13 +158,17 @@ mod args {
 				"-i".to_string(),
 				"-t".to_string(),
 				"-d".to_string(),
+				"-r".to_string(),
 			])
 			.unwrap(),
 			options
 		);
 
 		// stacked flags
-		assert_eq!(parse(vec!["path/to/bin".to_string(), "my text".to_string(), "-vhsitd".to_string(),]).unwrap(), options);
+		assert_eq!(
+			parse(vec!["path/to/bin".to_string(), "my text".to_string(), "-vhsitdr".to_string(),]).unwrap(),
+			options
+		);
 	}
 
 	#[test]
@@ -1829,6 +1835,7 @@ mod args {
 		options.version = true;
 		options.debug = true;
 		options.debug_level = 3;
+		options.raw_mode = true;
 
 		assert_eq!(
 			parse(vec![
@@ -1860,6 +1867,7 @@ mod args {
 				"-d".to_string(),
 				"-x".to_string(),
 				"3".to_string(),
+				"-r".to_string(),
 			])
 			.unwrap(),
 			options
@@ -1881,7 +1889,7 @@ mod args {
 				"9".to_string(),
 				"-z".to_string(),
 				"2".to_string(),
-				"-sithvd".to_string(),
+				"-sithvdr".to_string(),
 				"-m".to_string(),
 				"100".to_string(),
 				"-g".to_string(),
@@ -1911,7 +1919,13 @@ mod args {
 				"9".to_string(),
 				"--line-height".to_string(),
 				"2".to_string(),
-				"-sithvd".to_string(),
+				"--spaceless".to_string(),
+				"--independent-gradient".to_string(),
+				"--transition-gradient".to_string(),
+				"--help".to_string(),
+				"--version".to_string(),
+				"--debug".to_string(),
+				"--raw-mode".to_string(),
 				"--max-length".to_string(),
 				"100".to_string(),
 				"--gradient".to_string(),
