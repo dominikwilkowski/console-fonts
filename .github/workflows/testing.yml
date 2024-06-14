@@ -162,6 +162,11 @@ jobs:
         working-directory: ./nodejs
 
     steps:
+      - if: matrix.os == 'windows'
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
       - uses: actions/checkout@v4
 
       - name: Setup Node
