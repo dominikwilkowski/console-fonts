@@ -197,16 +197,14 @@ jobs:
 
       - name: Build files
         run:
-          cd nodejs
-          yarn build
+          cd nodejs && yarn build
 
       - name: Tree files
         run: npx tree-cli -l 5 --ignore "node_modules/, .git/"
 
       - name: Yarn test
         run:
-          cd nodejs
-          yarn test
+          cd nodejs && yarn test
 
   # -------------------------------| COVERAGE |------------------------------- #
   # ***********
