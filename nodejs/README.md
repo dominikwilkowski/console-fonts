@@ -168,6 +168,7 @@ Please look at the coding style and work with it, not against it ;)
 
 ## Release History
 
+* 3.3.0  -  Added raw-mode flag, bumped dependencies
 * 3.2.0  -  Added TS type to the published npm package
 * 3.1.1  -  Fixed #58 gradient color bug, added `gray` to gradient colors
 * 3.1.0  -  Added support for -V flag fallback

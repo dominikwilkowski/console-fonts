@@ -179,6 +179,7 @@ test(`Render - Render block font`, () => {
 			'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -227,6 +228,7 @@ test(`Render - Render letter spacing`, () => {
 			'     ╚═╝     ╚══════╝  ╚═╝  ╚═╝     ╚═╝   \n' +
 			'\n'
 	);
+	// prettier-ignore
 	expect(test1.array).toEqual([
 		'\n\n' +
 			'  ████████╗  ███████╗  ██╗  ██╗  ████████╗',
@@ -272,6 +274,7 @@ test(`Render - Render letter spacing`, () => {
 			'             ██║             ███████╗          ██╔╝ ██╗             ██║   \n' +
 			'             ╚═╝             ╚══════╝          ╚═╝  ╚═╝             ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test2.array).toEqual([
 		'\n\n' +
 			'          ████████╗          ███████╗          ██╗  ██╗          ████████╗',
@@ -319,6 +322,7 @@ test(`Render - Center align block font`, () => {
 			'          ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
 			'          ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			'       ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -366,6 +370,7 @@ test(`Render - Right align block font`, () => {
 			'                ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
 			'                ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			'             ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -404,6 +409,7 @@ test(`Render - Top align block font`, () => {
 		{ width: 50, height: 10 }
 	);
 
+	// prettier-ignore
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
 		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
@@ -458,6 +464,7 @@ test(`Render - Bottom align block font`, () => {
 			'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   '
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n\n\n' +
 			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -497,6 +504,7 @@ test(`Render - Ignore alignment top when combining it with space option`, () => 
 		{ width: 100, height: 10 }
 	);
 
+	// prettier-ignore
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
 		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
@@ -543,6 +551,7 @@ test(`Render - Ignore alignment bottom when combining it with space option`, () 
 		{ width: 100, height: 10 }
 	);
 
+	// prettier-ignore
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
 		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
@@ -595,6 +604,7 @@ test(`Render - Break into new line on smaller viewports`, () => {
 			' ██╔╝ ██╗    ██║   \n' +
 			' ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗',
@@ -641,6 +651,7 @@ test(`Render - Fallback to huge viewport in browser environments`, () => {
 			'    ██║    ███████╗ ██╔╝ ██╗    ██║   <br>\n' +
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n</div>'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -686,6 +697,7 @@ test(`Render - Respect maxLength over viewport in browser env`, () => {
 			' ██╔╝ ██╗    ██║   <br>\n' +
 			' ╚═╝  ╚═╝    ╚═╝   \n\n</div>'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗',
@@ -732,6 +744,7 @@ test(`Render - Add background color in browser environments`, () => {
 			'    ██║    ███████╗ ██╔╝ ██╗    ██║   <br>\n' +
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n</div>'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -777,6 +790,7 @@ test(`Render - Add line break`, () => {
 			' ██╔╝ ██╗    ██║   \n' +
 			' ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗',
@@ -829,6 +843,7 @@ test(`Render - Add line height`, () => {
 			' ██╔╝ ██╗    ██║   \n' +
 			' ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗',
@@ -876,6 +891,7 @@ test(`Render - Non supported characters are ignored`, () => {
 			'    ██║    ███████╗ ██╔╝ ██╗    ██║   \n' +
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\n\n' +
 			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -906,6 +922,7 @@ test(`Render - Non supported characters are ignored`, () => {
 test(`Render - Remove space`, () => {
 	const test = Render('text', { spaceless: true }, false, 1, { width: 100, height: 10 });
 
+	// prettier-ignore
 	expect(test.string).toBe(
 		' ████████╗ ███████╗ ██╗  ██╗ ████████╗\n' +
 		' ╚══██╔══╝ ██╔════╝ ╚██╗██╔╝ ╚══██╔══╝\n' +
@@ -954,6 +971,7 @@ test(`Render - Add background color`, () => {
 			'    ╚═╝    ╚══════╝ ╚═╝  ╚═╝    ╚═╝   \n\n' +
 			'\u001b[49m'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\u001b[41m\n\n\n' +
 			' ████████╗ ███████╗ ██╗  ██╗ ████████╗',
@@ -1045,6 +1063,7 @@ test(`Render - Break into new line on smaller viewports in raw mode`, () => {
 			' ██╔╝ ██╗    ██║   \r\n' +
 			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\r\n\r\n' + 
 			' ████████╗ ███████╗',
@@ -1097,6 +1116,7 @@ test(`Render - Add line break in raw mode`, () => {
 			' ██╔╝ ██╗    ██║   \r\n' +
 			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\r\n\r\n' +
 			' ████████╗ ███████╗',
@@ -1149,6 +1169,7 @@ test(`Render - Add line height in raw mode`, () => {
 			' ██╔╝ ██╗    ██║   \r\n' +
 			' ╚═╝  ╚═╝    ╚═╝   \r\n\r\n'
 	);
+	// prettier-ignore
 	expect(test.array).toEqual([
 		'\r\n\r\n' +
 			' ████████╗ ███████╗',

@@ -1,7 +1,7 @@
 {
 	"name": "cfonts",
 	"description": "Sexy ANSI fonts for the console",
-	"version": "3.2.0",
+	"version": "3.3.0",
 	"homepage": "https://github.com/dominikwilkowski/cfonts",
 	"author": {
 		"name": "Dominik Wilkowski",
@@ -24,7 +24,7 @@
 		"node": ">=10"
 	},
 	"scripts": {
-		"test": "yarn format && yarn build && yarn test:unit && yarn test:lint && yarn test:types && yarn test:fonts",
+		"test": "yarn test:format && yarn build && yarn test:unit && yarn test:lint && yarn test:types && yarn test:fonts",
 		"test:fonts": "node ./test/fonttest.js",
 		"test:watch": "jest --watchAll --coverage",
 		"test:unit": "npx cross-env FORCE_COLOR=3 jest",
@@ -42,21 +42,21 @@
 		"nuke": "rm -rf lib && rm -rf node_modules && rm yarn.lock"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.21.0",
-		"@babel/core": "^7.21.3",
-		"@babel/preset-env": "^7.20.2",
-		"@types/node": "latest",
-		"coveralls": "^3.1.1",
-		"eslint": "^8.36.0",
-		"jest-cli": "^27",
-		"onchange": "^7.1.0",
-		"prettier": "^2.8.7",
-		"typescript": "^5.0.2"
+		"@babel/cli": "^7",
+		"@babel/core": "^7",
+		"@babel/preset-env": "^7",
+		"@types/node": "^20",
+		"coveralls": "^3",
+		"eslint": "^8",
+		"jest-cli": "^29",
+		"onchange": "^7",
+		"prettier": "^3",
+		"typescript": "^5"
 	},
 	"peerDependencies": {},
 	"dependencies": {
 		"supports-color": "^8",
-		"window-size": "^1.1.1"
+		"window-size": "^1"
 	},
 	"jest": {
 		"displayName": "CFonts",
