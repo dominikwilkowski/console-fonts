@@ -193,18 +193,16 @@ jobs:
         run: yarn --version
 
       - name: Yarn install dependencies
-        run: yarn install --frozen-lockfile
+        run: cd nodejs && yarn install --frozen-lockfile
 
       - name: Build files
-        run:
-          cd nodejs && yarn build
+        run: cd nodejs && yarn build
 
       - name: Tree files
         run: npx tree-cli -l 5 --ignore "node_modules/, .git/"
 
       - name: Yarn test
-        run:
-          cd nodejs && yarn test
+        run: cd nodejs && yarn test
 
   # -------------------------------| COVERAGE |------------------------------- #
   # ***********
