@@ -157,14 +157,10 @@ jobs:
             node: 22
 
     runs-on: ${{ matrix.os-node.os }}
-    defaults:
-      run:
-        working-directory: ./nodejs
 
     steps:
       - if: matrix.os-node.os == 'windows-latest'
         run: |
-          cd /
           git config --global core.autocrlf false
           git config --global core.eol lf
 
