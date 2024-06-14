@@ -162,7 +162,7 @@ jobs:
         working-directory: ./nodejs
 
     steps:
-      - if: matrix.os-node.os == 'windows'
+      - if: matrix.os-node.os == 'windows-latest'
         run: |
           git config --global core.autocrlf false
           git config --global core.eol lf
