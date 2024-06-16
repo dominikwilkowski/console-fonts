@@ -447,6 +447,37 @@ $ cfonts "text" --max-length 15
 ![Max length command](https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/max-length.png)
 
 
+#### -r, --raw-mode
+Type: `<boolean>`  
+Default value: `false`
+
+Set this option to make sure `cfonts` used `CRLF` (`\r\n`) over the default `LF` (`\n`) [line breaks](https://en.wikipedia.org/wiki/Newline).  
+This could be useful for terminal raw modes or on older windows machines.  
+
+
+```rust
+use crossterm::terminal;
+use std::io::Write;
+use cfonts;
+
+fn main() -> std::io::Result<()> {
+	terminal::enable_raw_mode()?;
+
+	cfonts::say(cfonts::Options {
+		text: String::from("Hello|world"),
+		raw_mode: true,
+		..cfonts::Options::default()
+	});
+
+	std::io::stdout().flush()?;
+	terminal::disable_raw_mode()?;
+	Ok(())
+}
+```
+
+![Raw mode command](https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/raw-mode.png)
+
+
 #### -e, --env
 Type: `<string>`  
 Default value: `cli`
