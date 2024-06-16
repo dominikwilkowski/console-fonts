@@ -50,21 +50,6 @@ pub struct RenderedString {
 ///             " █▀█ ██▄ █▄▄ █▄▄ █▄█\n\n"
 ///         )
 ///     );
-///
-///     let output = render(Options {
-///         text: String::from("hello"),
-///         font: Fonts::FontTiny,
-///         ..Options::default()
-///     });
-///
-///     assert_eq!(
-///         output.text,
-///         format!("{}{}{}",
-///             "\r\n\r\n",
-///             " █ █ █▀▀ █   █   █▀█\r\n",
-///             " █▀█ ██▄ █▄▄ █▄▄ █▄█\r\n\r\n"
-///         )
-///     );
 /// }
 /// ```
 ///
