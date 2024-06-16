@@ -48,8 +48,8 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			`    gradient: ${args.gradient},\n` +
 			`    independentGradient: ${args['independent-gradient']},\n` +
 			`    transitionGradient: ${args['transition-gradient']},\n` +
-			`    env: ${args.env},\n` +
 			`    rawMode: ${args['raw-mode']},\n` +
+			`    env: ${args.env},\n` +
 			`  }, ${args.debug}, ${args['debug-level']} );`,
 		3,
 		args.debug,
@@ -89,8 +89,8 @@ const Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
 			gradient: args.gradient,
 			independentGradient: args['independent-gradient'],
 			transitionGradient: args['transition-gradient'],
-			env: args.env,
 			rawMode: args['raw-mode'],
+			env: args.env,
 		},
 		args.debug,
 		args['debug-level']

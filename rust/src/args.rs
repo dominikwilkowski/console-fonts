@@ -31,8 +31,8 @@ use crate::debug::{d, Dt};
 /// options.gradient = vec!["#ff0000".to_string(), "#0000ff".to_string()];
 /// options.independent_gradient = true;
 /// options.transition_gradient = true;
-/// options.env = Env::Browser;
 /// options.raw_mode = true;
+/// options.env = Env::Browser;
 /// options.help = true;
 /// options.version = true;
 /// options.debug = true;
@@ -126,16 +126,16 @@ use crate::debug::{d, Dt};
 ///         "--spaceless".to_string(),
 ///         "--independent-gradient".to_string(),
 ///         "--transition-gradient".to_string(),
-///         "--help".to_string(),
-///         "--version".to_string(),
-///         "--debug".to_string(),
-///         "--raw-mode".to_string(),
 ///         "--max-length".to_string(),
 ///         "100".to_string(),
 ///         "--gradient".to_string(),
 ///         "red,blue".to_string(),
+///         "--raw-mode".to_string(),
 ///         "--env".to_string(),
 ///         "browser".to_string(),
+///         "--help".to_string(),
+///         "--version".to_string(),
+///         "--debug".to_string(),
 ///         "--debug-level".to_string(),
 ///         "3".to_string(),
 ///     ])
@@ -508,11 +508,11 @@ pub fn parse(args: Vec<String>) -> Result<Options, String> {
 						"transition_gradient" => {
 							options.transition_gradient = true;
 						}
-						"debug" => {
-							options.debug = true;
-						}
 						"raw_mode" => {
 							options.raw_mode = true;
+						}
+						"debug" => {
+							options.debug = true;
 						}
 						_ => {}
 					},

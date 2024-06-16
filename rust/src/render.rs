@@ -54,7 +54,6 @@ pub struct RenderedString {
 ///     let output = render(Options {
 ///         text: String::from("hello"),
 ///         font: Fonts::FontTiny,
-///         raw_mode: true,
 ///         ..Options::default()
 ///     });
 ///

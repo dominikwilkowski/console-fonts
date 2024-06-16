@@ -57,6 +57,7 @@ cfonts.say('Hello|world!', {
 	gradient: false,            // define your two gradient colors
 	independentGradient: false, // define if you want to recalculate the gradient for each new line
 	transitionGradient: false,  // define if this is a transition between colors directly
+	rawMode: false,             // define if the line breaks should be CRLF (`\r\n`) over the default LF (`\n`)
 	env: 'node'                 // define the environment cfonts is being executed in
 });
 ```

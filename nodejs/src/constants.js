@@ -280,6 +280,13 @@ const CLIOPTIONS = {
 		fallback_shortcut: false,
 		default: false,
 	},
+	'--raw-mode': {
+		description: 'Use to enable proper newline rendering in raw mode in the terminal by adding \\r to line breaks',
+		example: '--raw-mode',
+		short: '-r',
+		fallback_shortcut: false,
+		default: false,
+	},
 	'--env': {
 		description: 'Use to define what environment you run CFonts in.',
 		example: `--env [green-open][ "node", "browser" ][green-close]`,
@@ -302,13 +309,6 @@ const CLIOPTIONS = {
 		fallback_shortcut: false,
 		options: true,
 		default: 1,
-	},
-	'--raw-mode': {
-		description: 'Use to enable proper newline rendering in raw mode in the terminal by adding \\r to line breaks',
-		example: '--raw-mode',
-		short: '-r',
-		fallback_shortcut: false,
-		default: false,
 	},
 };
 

@@ -298,12 +298,12 @@ impl Default for Options {
 			gradient: Vec::new(),
 			independent_gradient: false,
 			transition_gradient: false,
+			raw_mode: false,
 			env: Env::Cli,
 			help: false,
 			version: false,
 			debug: false,
 			debug_level: 1,
-			raw_mode: false,
 		}
 	}
 }
@@ -472,6 +472,15 @@ pub const CLIOPTIONS: [CliOption; 17] = [
 		kind: OptionType::Bool,
 	},
 	CliOption {
+		key: "raw_mode",
+		name: "--raw-mode",
+		shortcut: "-r",
+		fallback_shortcut: "",
+		description: "Use to enable proper newline rendering in raw mode in the terminal by adding \\r to line breaks",
+		example: "--raw-mode",
+		kind: OptionType::Bool,
+	},
+	CliOption {
 		key: "env",
 		name: "--env",
 		shortcut: "-e",
@@ -497,14 +506,5 @@ pub const CLIOPTIONS: [CliOption; 17] = [
 		description: "Use to define the debug level. The higher, the less debug infos",
 		example: "--debug-level 2",
 		kind: OptionType::Number,
-	},
-	CliOption {
-		key: "raw_mode",
-		name: "--raw-mode",
-		shortcut: "-r",
-		fallback_shortcut: "",
-		description: "Use to enable proper newline rendering in raw mode in the terminal by adding \\r to line breaks",
-		example: "--raw-mode",
-		kind: OptionType::Bool,
 	},
 ];

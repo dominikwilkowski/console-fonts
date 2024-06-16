@@ -38,8 +38,8 @@ const Options = {
 			gradient: false,
 			independentGradient: false,
 			transitionGradient: false,
-			env: 'node',
 			rawMode: false,
+			env: 'node',
 		};
 
 		this.store = { ...defaults }; // cloning

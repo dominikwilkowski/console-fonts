@@ -80,6 +80,7 @@ fn main() {
 		gradient: Vec::new(),
 		independent_gradient: false,
 		transition_gradient: false,
+		raw_mode: false,
 		env: Env::Cli,
 		..Options::default()
 	});
