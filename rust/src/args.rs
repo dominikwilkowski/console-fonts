@@ -241,6 +241,7 @@ pub fn parse(args: Vec<String>) -> Result<Options, String> {
 							"simple3d" => Fonts::FontSimple3d,
 							"chrome" => Fonts::FontChrome,
 							"huge" => Fonts::FontHuge,
+							"midi" => Fonts::FontMidi,
 							"shade" => Fonts::FontShade,
 							"slick" => Fonts::FontSlick,
 							"grid" => Fonts::FontGrid,

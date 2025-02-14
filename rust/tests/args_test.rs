@@ -409,6 +409,17 @@ mod args {
 			.unwrap(),
 			options
 		);
+		options.font = Fonts::FontMidi;
+		assert_eq!(
+			parse(vec![
+				"path/to/bin".to_string(),
+				"my text".to_string(),
+				"-f".to_string(),
+				"Midi".to_string()
+			])
+			.unwrap(),
+			options
+		);
 		options.font = Fonts::FontShade;
 		assert_eq!(
 			parse(vec![

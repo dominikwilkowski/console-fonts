@@ -27,6 +27,8 @@ pub enum Fonts {
 	FontChrome,
 	/// ![The "huge" cfonts font](https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/huge.png)
 	FontHuge,
+	/// ![The "midi" cfonts font](https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/midi.png)
+	FontMidi,
 	/// ![The "shade" cfonts font](https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/shade.png)
 	FontShade,
 	/// ![The "slick" cfonts font](https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/slick.png)

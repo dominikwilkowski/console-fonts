@@ -76,6 +76,9 @@ pub fn load_all_fonts() -> HashMap<Fonts, &'static str> {
 	let font_content = include_str!("../fonts/shade.json");
 	fonts.insert(Fonts::FontShade, font_content);
 
+	let font_content = include_str!("../fonts/midi.json");
+	fonts.insert(Fonts::FontMidi, font_content);
+
 	let font_content = include_str!("../fonts/slick.json");
 	fonts.insert(Fonts::FontSlick, font_content);
 

@@ -23,6 +23,7 @@ mod tests {
 		fonts.insert(Fonts::FontSimple3d, font_content);
 		fonts.insert(Fonts::FontChrome, font_content);
 		fonts.insert(Fonts::FontHuge, font_content);
+		fonts.insert(Fonts::FontMidi, font_content);
 		fonts.insert(Fonts::FontShade, font_content);
 		fonts.insert(Fonts::FontSlick, font_content);
 		fonts.insert(Fonts::FontGrid, font_content);
