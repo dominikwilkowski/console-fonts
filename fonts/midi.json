@@ -1,6 +1,6 @@
 {
 	"name": "midi",
-	"version": "0.2.0",
+	"version": "0.1.0",
 	"homepage": "https://github.com/dominikwilkowski/cfonts",
 	"colors": 2,
 	"lines": 3,
@@ -23,8 +23,8 @@
         ],
 		"B": [
 			"█▄▄",
-            "█ █",
-            "█▄█"
+			"█ █",
+			"█▄█"
 		],
 		"C": [
 			"█▀▀",
