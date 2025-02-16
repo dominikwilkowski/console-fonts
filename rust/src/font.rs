@@ -49,43 +49,46 @@ pub struct Font {
 pub fn load_all_fonts() -> HashMap<Fonts, &'static str> {
 	let mut fonts = HashMap::new();
 
-	let font_content = include_str!("../fonts/console.json");
+	let font_content = include_str!("../../fonts/console.json");
 	fonts.insert(Fonts::FontConsole, font_content);
 
-	let font_content = include_str!("../fonts/block.json");
+	let font_content = include_str!("../../fonts/block.json");
 	fonts.insert(Fonts::FontBlock, font_content);
 
-	let font_content = include_str!("../fonts/simpleBlock.json");
+	let font_content = include_str!("../../fonts/simpleBlock.json");
 	fonts.insert(Fonts::FontSimpleBlock, font_content);
 
-	let font_content = include_str!("../fonts/simple.json");
+	let font_content = include_str!("../../fonts/simple.json");
 	fonts.insert(Fonts::FontSimple, font_content);
 
-	let font_content = include_str!("../fonts/3d.json");
+	let font_content = include_str!("../../fonts/3d.json");
 	fonts.insert(Fonts::Font3d, font_content);
 
-	let font_content = include_str!("../fonts/simple3d.json");
+	let font_content = include_str!("../../fonts/simple3d.json");
 	fonts.insert(Fonts::FontSimple3d, font_content);
 
-	let font_content = include_str!("../fonts/chrome.json");
+	let font_content = include_str!("../../fonts/chrome.json");
 	fonts.insert(Fonts::FontChrome, font_content);
 
-	let font_content = include_str!("../fonts/huge.json");
+	let font_content = include_str!("../../fonts/huge.json");
 	fonts.insert(Fonts::FontHuge, font_content);
 
-	let font_content = include_str!("../fonts/shade.json");
+	let font_content = include_str!("../../fonts/shade.json");
 	fonts.insert(Fonts::FontShade, font_content);
 
-	let font_content = include_str!("../fonts/slick.json");
+	let font_content = include_str!("../../fonts/midi.json");
+	fonts.insert(Fonts::FontMidi, font_content);
+
+	let font_content = include_str!("../../fonts/slick.json");
 	fonts.insert(Fonts::FontSlick, font_content);
 
-	let font_content = include_str!("../fonts/grid.json");
+	let font_content = include_str!("../../fonts/grid.json");
 	fonts.insert(Fonts::FontGrid, font_content);
 
-	let font_content = include_str!("../fonts/pallet.json");
+	let font_content = include_str!("../../fonts/pallet.json");
 	fonts.insert(Fonts::FontPallet, font_content);
 
-	let font_content = include_str!("../fonts/tiny.json");
+	let font_content = include_str!("../../fonts/tiny.json");
 	fonts.insert(Fonts::FontTiny, font_content);
 
 	fonts

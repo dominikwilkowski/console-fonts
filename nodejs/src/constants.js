@@ -165,6 +165,7 @@ const FONTFACES = {
 	simple: 'simple',
 	'3d': '3d',
 	simple3d: 'simple3d',
+	midi: 'midi',
 	chrome: 'chrome',
 	huge: 'huge',
 	shade: 'shade',
